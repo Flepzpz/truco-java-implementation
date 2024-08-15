@@ -1,0 +1,52 @@
+@startuml
+class truco.Baralho {
+~ Stack<Carta> cartas
++ <<Create>> Baralho()
++ List<Carta> darCartas()
+}
+
+
+class truco.Main {
++ {static} void main(String[])
+}
+
+class truco.Jogador {
+- String nome
+- List<Carta> mao
+- int pontos
++ String getNome()
++ void setNome(String)
++ int getPontos()
++ void setPontos(int)
++ void pegarCartas(List<Carta>)
++ void imprimeMao()
++ Carta jogarCarta(int)
+}
+
+
+class truco.Partida {
+~ Jogador humano
+~ Jogador computador
+- int md3H
+- int md3C
+~ boolean humanoComeca
+~ Scanner read
++ <<Create>> Partida(Jogador,Jogador)
++ void rodada()
++ void validarVencedor(Carta,Carta,Carta)
++ Carta manilha(Baralho)
+}
+
+
+class truco.Carta {
+- int naipe
+- int valor
++ <<Create>> Carta(int,int)
++ int getNaipe()
++ int getValor()
++ char getCharNaipe()
++ char getCharValor()
+}
+
+
+@enduml
